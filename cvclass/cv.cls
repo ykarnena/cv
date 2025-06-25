@@ -15,7 +15,16 @@
 \DeclareOption{draft}{\overfullrule=5pt\ClassInfo{cv}{Draft mode selected}}
 \DeclareOption{final}{\overfullrule=0pt\ClassInfo{cv}{Final mode selected}}
 \DeclareOption{english}{\def\lang{english}\ClassInfo{cv}{English language selected}}
-\DeclareOption{german}{\def\lang{german}\ClassInfo{cv}{German language selected}}
+% Define the german flag before options are processed
+\newif\ifcv@german
+\cv@germanfalse % default
+
+\DeclareOption{german}{
+  \def\lang{german}
+  \cv@germantrue
+  \ClassInfo{cv}{German language selected}
+}
+
 
 \ExecuteOptions{a4paper,12pt,english}
 \ProcessOptions\relax
@@ -139,8 +148,6 @@
 \ClassInfo{cv}{CV address set to '#1'}}
 \newcommand{\cvwebsite}[1]{\def\@cvwebsite{#1}
 \ClassInfo{cv}{CV website set to '#1'}}
-\newcommand{\cvsummary}[1]{\def\@cvsummary{#1}
-\ClassInfo{cv}{CV summary set to '#1'}}
 \newcommand{\cvnationality}[1]{\def\@cvnationality{#1}}
 \ClassInfo{cv}{CV Nationality set to '#1'}
 \newcommand{\cvlocation}[1]{\def\@cvlocation{#1}
@@ -149,62 +156,104 @@
 \ClassInfo{cv}{CV picture location set to '#1'}
 \newcommand{\cvdateofbirth}[1]{\def\@cvdateofbirth{#1}}
 
+\newcommand{\@cvpagemargin}{margin=2.5cm}
+\newcommand{\cvpagemargin}[1]{\renewcommand{\@cvpagemargin}{#1}}
 % CV Header
+
+\newcommand{\@headerseparation}{20pt}
+\newcommand{\cvheadersep}[1]{\renewcommand{\@headerseparation}{#1}}
+
 \RequirePackage{fancyhdr}
 \RequirePackage{graphicx}
-\RequirePackage{hyperref}
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage[includehead]{geometry}
 \RequirePackage{fontawesome5} % For icons like phone, email, etc.
-\pagestyle{fancy}
-\fancyhf{} % Clear all header and footer fields
-\newcommand{\makecvheader}{%
-    % Verify that the name, email and address are set
-    \ifx\@cvname\undefined
-        \ClassError{cv}{CV name is not set. Use \cvname command to set it.}{}%
-    \fi
-    \ifx\@cvemail\undefined
-        \ClassError{cv}{CV email is not set. Use \cvemail command to set it.}{}%
-    \fi
-    \ifx\@cvaddress\undefined
-        \ClassError{cv}{CV address is not set. Use \cvaddress command to set it.}{}%
-    \fi
+\RequirePackage{calc}
 
-    % If german language option is selected then warn if nationality, picture is not set.
-    \ifx\lang\german
-        \ifx\@cvnationality\undefined
-            \ClassWarning{cv}{CV would be better with Nationality. Use \cvaddress to set it.}{}%
-        \fi
-        \ifx\@cvpicturelocation\undefined
-            \ClassWarning{cv}{CV would be better with a picture. Use \cvpicturelocation to set it.}{}%
-        \fi
-    \fi
-
-    % Header content
-    \fancyhead[L]{
-        % Display large name with cvcolor within an aligned hbox
-        \begin{minipage}[t]{0.7\textwidth}
-            \raggedleft
-            {\Large\color{cvcolor}\@cvname}\\[1ex]
-            {\@cvaddress}\\
-            {\faenvelope\ \@email}\\
-            {\fatelephone\ \@cvphone}\\
-            \ifx\@cvwebsite\undefined
-                % If website is not set, do not display it
-                \ClassWarning{cv}{CV would be better with a website. Use \cvwebsite to set it.}{}%
-            \else
-                {\faweb\ \@cvwebsite}\\
-            \fi
-            \ifx\@cvdateofbirth\undefined
-                % If date of birth is not set, do not display it
-                \ClassWarning{cv}{CV would be better with Date of Birth. Use \cvdateofbirth to set it.}{}%
-            \else
-                {\faday\ \@cvdateofbirth}\\
-            \ifx\@cvnationality\undefined
-                % If 
-                \ClassWarning{cv}{CV would be better with Nationality. Use \cvnationality to set it.}{}%
-            \else
-                {\faflag\ \@cvnationality}\\
-            \fi
-
-            
-    }
+% Verification of fields
+\newcommand{\cvcheckfields}{
+  \@ifundefined{@cvname}{%
+    \ClassError{cv}{Required field cvname not set}{Please provide your name using '\cvname\{...\}'}%
+  }{}
+  \@ifundefined{@cvemail}{%
+    \ClassError{cv}{Required field cvemail not set}{Please provide your email using '\cvemail\{...\}'}%
+  }{}
+  \@ifundefined{@cvphone}{%
+    \ClassError{cv}{Required field cvphone not set}{Please provide your phone number using '\cvphone\{...\}'}%
+  }{}
+  \@ifundefined{@cvaddress}{%
+    \ClassError{cv}{Required field cvaddress not set}{Please provide your phone number using '\cvaddress\{...\}'}%
+  }{}
+  \ifcv@german
+    \@ifundefined{@cvnationality}{%
+      \ClassWarning{cv}{Nationality is required for German CVs but not set}%
+    }{}
+    \@ifundefined{@cvdateofbirth}{%
+      \ClassWarning{cv}{Date of birth is required for German CVs but not set}%
+    }{}
+  \fi
 }
+
+\AtEndPreamble{
+  \cvcheckfields
+}
+
+\AtBeginDocument{
+	\newsavebox{\cvbiodatahdr}
+	\sbox{\cvbiodatahdr}{%
+  		\begin{minipage}{0.55\textwidth}
+    			\begin{flushleft}
+    			\textbf{\textcolor{cvcolor}{\LARGE \@cvname}}\\[5pt]
+			\@cvaddress\\
+			\faIcon{envelope}~\href{mailto:\@cvemail}\@cvemail\\
+			\faIcon{mobile-alt}~\href{tel:\@cvphone}\@cvphone\\
+			% -- Insert code for optional fields such as nationality and date of birth here. They must be rendered on basis of the lanugage --%
+			\@ifundefined{@cvnationality}{}{%
+  				\ifcv@german
+    					\textcolor{cvcolor!80}{{Staatsangehörigkeit:}} \@cvnationality\\
+  				\else
+    					\textcolor{cvcolor!80}{{Nationality:}} \@cvnationality\\
+  				\fi
+			}
+
+			% Optional: date of birth
+			\@ifundefined{@cvdateofbirth}{}{%
+  			\ifcv@german
+    				\textcolor{cvcolor!80}{{Geburtsdatum:}} \@cvdateofbirth\\
+  			\else
+    				\textcolor{cvcolor!80}{{Date of Birth:}} \@cvdateofbirth\\
+  			\fi
+			}
+			\@ifundefined{@cvwebsite}{}{%
+				\faIcon{globe}~\href{\@cvwebsite}{\@cvwebsite}%
+			}
+    			\end{flushleft}
+  		\end{minipage}%
+	}
+
+	\newlength{\cvheaderboxheight}
+	\settototalheight{\cvheaderboxheight}{\usebox{\cvbiodatahdr}}
+	\setlength{\headheight}{\cvheaderboxheight}
+	\setlength{\headsep}{\@headerseparation}
+	
+	\expandafter\geometry\expandafter{\@cvpagemargin, headheight=\the\headheight, headsep=\the\headsep}
+
+	\pagestyle{fancy}
+	\fancyhf{} % clear all header/footer fields
+
+	% Use the saved box as the header
+	\fancyhead[L]{\usebox{\cvbiodatahdr}}
+
+	\fancyhead[R]{
+		\begin{minipage}{0.4\textwidth}
+			\begin{flushright}
+			
+			\end{flushright}
+		\end{minipage}
+	}
+	\renewcommand{\headrulewidth}{0pt}
+}
+
+\newenvironment{cvsummary}{%
+  \section*{\ifcv@german Zusammenfassung\else Summary\fi}%
+}{}
