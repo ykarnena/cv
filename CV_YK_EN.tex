@@ -1,0 +1,144 @@
+\documentclass[12pt,a4paper,sans,en]{customcvtemplate}
+\usepackage{longtable}
+\usepackage{helvet}
+\usepackage{titlesec}
+
+\titlespacing*{\section}{0pt}{1.5ex}{0.5ex}
+
+\renewcommand{\sfdefault}{phv}
+
+% ModernCV Style & Color
+\moderncvstyle{banking}  % Options: casual, classic, banking, oldstyle, fancy
+\moderncvcolor{blue}  % Options: blue, orange, green, red, purple, grey
+
+% Personal Data
+\name{Yashasvi}{Karnena}
+\title{Automotive Embedded Software Engineer}
+\address{Theaterstrasse 58}{52062 Aachen}{Germany}
+\phone[mobile]{+49 176 72606124}
+\email{yashkarnena@gmail.com}
+\nationality{Indian}
+\dateofbirth{24.05.1997}
+\profilepicture{F1534.jpg}{0.075}
+
+% Begin Document
+\begin{document}
+
+% Make the title
+\makecvtitle
+
+% Work Experience
+\section{Professional Experience}
+\vspace{-0.3cm}
+\renewcommand{\arraystretch}{0.05}
+\begin{longtable}{@{}p{0.13\textwidth}p{0.05\textwidth}p{0.82\textwidth}@{}}
+Nov. 2021 -- Present &&\cventrycompany{fka GmbH}{Aachen, Germany}\newline
+\emph{Development Engineer -- Embedded Software}\hfill(Apr. 2023 -- Present)
+\begin{itemize}
+\item Developed ISO-26262-qualified real-time control software components using TargetLink and MATLAB/Simulink.
+\item Built Functional Mockup Units (FMUs) for validating ECU firmware against controlled plant models.
+\item Investigated Nonlinear control methods for PMSM position control in Steer-By-Wire systems.
+\item Conducted HiL, MiL, and SiL testing of functional software.
+\item Researched and implemented concepts for cloud based plant parameter estimation and adaptive controller tuning of Software Defined Vehicles.
+\end{itemize}\\
+ && \emph{Master Thesis Student}\hfill(Apr. 2022 -- Mar. 2023)
+\begin{itemize}
+\item Implemented position trajectory tracking controller using nonlinear 2DOF control.
+\item Developed nonlinear MPC trajectory planner with State-Lattice planners for solver warm-starting to tackle non-convexities.
+\item Devised a state-machine based sequential motion cooperation algorithm for Connected Autonomous Vehicles.
+\end{itemize}\\
+ && \emph{Intern}\hfill(Nov. 2021 -- Mar. 2022)
+\begin{itemize}
+\item Designed cascaded position control loops and extended Kalman filters (Parameter Estimation) for Steer-by-Wire systems.
+\item Developed C/C++ estimators and filters; deployed on PXROS RTOS.
+\item Debugged Hardware, Firmware and control loop problems.
+\end{itemize}\\
+May 2021 -- Oct. 2021 &&\cventrycompany{Institute for Electrical Machines, RWTH Aachen}{Aachen, Germany}\newline
+\emph{Student Assistant}
+\begin{itemize}
+\item Created Simulink exercises for lab course \emph{Dynamics of Electrical Machines}.
+\item Implemented Simulink based bearing failure analysis models arising out of inverter harmonics.
+\end{itemize}\\
+May 2018 -- Apr. 2019 &&\cventrycompany{Altigreen Propulsion Labs Private Limited}{Bengaluru, India}\newline
+\emph{Junior Embedded Engineer}
+\begin{itemize}
+\item Built firmware for telematics units and Inverter FOC algorithms in Simulink.
+\item Set up toolchains using CMake/Jenkins for TI C2000 and ARM platforms.
+\end{itemize}\\
+Apr. 2017 -- Sept. 2017 &&\cventrycompany{Defense Avionics Research Establishment}{Bengaluru, India}\newline
+\emph{Electrical Engineering Intern}
+\begin{itemize}
+\item Designed power distribution boards using LTSpice and Altium.
+\item Implemented avionics logic on FPGAs; developed analog/digital filters.
+\end{itemize}
+\end{longtable}
+
+\vspace{-0.8cm}
+% Education
+\section{Education}
+\begin{tabular}{@{}p{0.13\textwidth}p{0.05\textwidth}p{0.82\textwidth}@{}}
+Oct. 2019 -- May 2023 &&\cventrycompany{RWTH Aachen University}{Aachen, Germany}\newline
+\emph{M.Sc. in Electrical Engineering, IT and Computer Engineering}\newline
+\cvitem{\underline{Major}}{Systems and Automation  (Grade: 2.2 / 4.0)}\\
+Jul. 2014 -- May 2018 &&\cventrycompany{Vellore Institute of Technology}{Vellore, India}\newline
+\emph{B.Tech. in Electrical and Electronics Engineering}\newline(Grade: 8.36 / 10)
+\end{tabular}
+
+% Skills
+\vspace{-0.25cm}
+\section{Skills}
+\vspace{-0.075cm}
+\cvitem{Programming}{C/C++, Java, Python, Golang, Bash, LaTeX, CMake}
+\cvitem{Simulation}{MATLAB, Simulink, LabView, PLECS, PSpice, TargetLink}
+\cvitem{EDA Tools}{KiCAD, Altium Designer, Eagle PCB}
+\cvitem{Testing}{CANoe, CANape, ControlDesk, PCAN-View}
+\cvitem{IT Tools}{Git, Jira, MS Office, IBM DOORS, Windchill, Citavi}
+\cvitem{Languages}{English (C2), German (B1), Telugu (C2), Hindi (C1)}
+
+% Certifications
+\vspace{-0.25cm}
+\section{Certifications}
+\vspace{-0.1cm}
+\begin{tabular}{@{}p{0.13\textwidth}p{0.05\textwidth}p{0.82\textwidth}@{}}
+Oct. 2024 && \cventrycompany{Automotive Cyber Security Training}{NobleProg GmbH}
+\end{tabular}
+
+% Extra Curriculars
+\vspace{-0.25cm}
+\section{Extracurricular Activities}
+\vspace{0.065cm}
+\begin{tabular}{@{}p{0.13\textwidth}p{0.05\textwidth}p{0.82\textwidth}@{}}
+Apr. 2022 -- \newline Sept. 2024&& \cventrycompany{Tachyon Hyperloop}{RWTH Aachen University}
+\vspace{0.075cm}
+\begin{itemize}
+\item Implemented Telemetry, Brakes Control and, Thermal Control hardware using Altium Designer.
+\item Developed high voltage power electronics package for 3-Phase propulsion control.
+\item Developed firmware using MATLAB/Simulink for TI C2000 microcontrollers.
+\item Managed finances and projects as a board member and mentored new recruits in electronics design.
+\end{itemize}\\
+Feb. 2015 -- \newline Sept. 2017&& \cventrycompany{Pravega Racing}{Vellore Institute of Technology}
+\vspace{0.075cm}
+\begin{itemize}
+\item Developed Electronic Throttle controller.
+\item Tuned Engine Control Units and built race specification wiring harness.
+\item Developed Traction Control Unit for race car launch control.
+\end{itemize}
+\end{tabular}
+
+% Awards
+\vspace{-0.25cm}
+\section{Awards}
+\vspace{-0.065cm}
+\begin{tabular}{@{}p{0.13\textwidth}p{0.05\textwidth}p{0.82\textwidth}@{}}
+Aug. 2024 && \cventrycompany{European Hyperloop Week}{Best Electronics Package}\vspace{1.5ex}\\
+Jan. 2017 && \cventrycompany{Formula Student India}{Best Engineering Design}\vspace{1.5ex}\\
+May 2013 && \cventrycompany{NASA Space Settlement Contest}{Honorable Mention}\vspace{1.5ex}\\
+\end{tabular}
+% Signature
+\begin{flushright}
+\vskip8ex
+\textbf{Yashasvi Karnena}\\
+Aachen, \today
+\end{flushright}
+
+\end{document}
