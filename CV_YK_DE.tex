@@ -1,0 +1,139 @@
+\documentclass[12pt,a4paper,sans,de]{customcvtemplate}
+\usepackage{longtable}
+\usepackage{helvet}
+\usepackage{titlesec}
+
+\titlespacing*{\section}{0pt}{1.5ex}{0.5ex}
+
+\renewcommand{\sfdefault}{phv}
+
+% ModernCV Style & Color
+\moderncvstyle{banking}  % Optionen: casual, classic, banking, oldstyle, fancy
+\moderncvcolor{blue}     % Optionen: blue, orange, green, red, purple, grey
+
+% Persönliche Daten
+\name{Yashasvi}{Karnena}
+\title{Embedded Software Ingenieur im Automobilbereich}
+\address{Theaterstraße 58}{52062 Aachen}{Deutschland}
+\phone[mobile]{+49 176 72606124}
+\email{yashkarnena@gmail.com}
+\nationality{Indisch}
+\dateofbirth{24.05.1997}
+\profilepicture{F1534.jpg}{0.075}
+
+% Dokumentbeginn
+\begin{document}
+
+% Titel
+\makecvtitle
+
+% Berufserfahrung
+\vspace{-0.5cm}
+\section{Berufserfahrung}
+\vspace{-0.3cm}
+\renewcommand{\arraystretch}{0.05}
+\begin{longtable}{@{}p{0.13\textwidth}p{0.03\textwidth}p{0.82\textwidth}@{}}
+Nov. 2021 -- Heute &&\cventrycompany{fka GmbH}{Aachen, Deutschland}\newline
+\emph{Entwicklungsingenieur -- Software}\hfill(Apr. 2023 -- Heute)
+\begin{itemize}
+\item Entwicklung von ISO-26262-qualifizierten Echtzeit-Softwarekomponenten mit TargetLink und MATLAB/Simulink.
+\item Erstellung von Functional Mockup Units (FMUs) zur Validierung der ECU-Firmware anhand von Umgebungsmodellen.
+\item Untersuchung nichtlinearer Regelungsmethoden für PMSM-Positionsregelung in Steer-by-Wire-Systemen.
+\item Durchführung von HiL-, MiL- und SiL-Tests der Funktionssoftware.
+\item Forschung und Implementierung eines Konzepts zur cloudbasierten Parameteridentifikation und Reglerabstimmung für Software-Defined Vehicles.
+\end{itemize}\\
+ && \emph{Masterand}\hfill(Apr. 2022 -- Mär. 2023)
+\begin{itemize}
+\item Implementierung eines Positions-Trajektorienregelkreises mittels nichtlinearer 2DOF-Regelung.
+\item Implementierung eines nichtlinearen MPC-Trajektorienplaners mit State-Lattice-Plannern zum Solver-Warm-Start zur Behandlung von Nichtkonvexitäten.
+\item Entwicklung eines zustandsbasierten sequentiellen Kooperationsalgorithmus für vernetzte autonome Fahrzeuge.
+\end{itemize}\\
+ && \emph{Praktikant}\hfill(Nov. 2021 -- Mär. 2022)
+\begin{itemize}
+\item Entwurf von kaskadierten Positionsregelkreisen und extended Kalman-Filtern (Parameterabschätzung) für Steer-by-Wire-Systeme.
+\item Entwicklung von C/C++-Schätzern und Filtern; Einsatz auf PXROS RTOS.
+\item Fehlersuche bei Hardware, Firmware und Regelkreisen.
+\end{itemize}\\
+Mai 2021 -- Okt. 2021 &&\cventrycompany{Institut für Elektrische Maschinen, RWTH Aachen}{Aachen, Deutschland}\newline
+\emph{Studentische Hilfskraft}
+\begin{itemize}
+\item Erstellung von Simulink-Übungen für das Labor \emph{Dynamics of Electrical Machines}.
+\item Entwicklung von Simulink-Modellen zur Analyse von Lagerschäden durch Wechselrichter-Oberschwingungen.
+\end{itemize}\\
+Mai 2018 -- Apr. 2019 &&\cventrycompany{Altigreen Propulsion Labs Private Limited}{Bengaluru, Indien}\newline
+\emph{Junior Embedded Engineer}
+\begin{itemize}
+\item Entwicklung von Firmware für Telematikgeräte und Inverter-FOC-Algorithmen in Simulink.
+\item Einrichtung von Toolchains mit CMake/Jenkins für TI C2000- und ARM-Plattformen.
+\end{itemize}
+\end{longtable}
+
+\vspace{-0.8cm}
+% Ausbildung
+\section{Akademischer Werdegang}
+\begin{tabular}{@{}p{0.13\textwidth}p{0.03\textwidth}p{0.82\textwidth}@{}}
+Okt. 2019 -- Mai 2023 &&\cventrycompany{RWTH Aachen University}{Aachen, Deutschland}\newline
+\emph{M.Sc. Elektrotechnik, IT und Computer Engineering}\newline
+\cvitem{\underline{Schwerpunkt}}{Systeme und Automatisierung (Note: 2.2 / 4.0)}\\
+Jul. 2014 -- Mai 2018 &&\cventrycompany{Vellore Institute of Technology}{Vellore, Indien}\newline
+\emph{B.Tech. in Elektrotechnik und Elektronik}\newline(Note: 8.36 / 10)
+\end{tabular}
+
+% Kenntnisse
+\vspace{-0.25cm}
+\section{Kenntnisse}
+\vspace{-0.075cm}
+\cvitem{Programmierung}{C/C++, Java, Python, Golang, Bash, LaTeX, CMake}
+\cvitem{Simulation}{MATLAB, Simulink, LabView, PLECS, PSpice, TargetLink}
+\cvitem{EDA Tools}{KiCAD, Altium Designer, Eagle PCB}
+\cvitem{Testen}{CANoe, CANape, ControlDesk, PCAN-View}
+\cvitem{IT Tools}{Git, Jira, MS Office, IBM DOORS, Windchill, Citavi}
+\cvitem{Sprachen}{Englisch (C2), Deutsch (B1), Telugu (C2), Hindi (C1)}
+
+% Zertifikate
+\vspace{-0.25cm}
+\section{Berufliche Weiterbildungen}
+\vspace{-0.1cm}
+\begin{tabular}{@{}p{0.13\textwidth}p{0.03\textwidth}p{0.82\textwidth}@{}}
+Okt. 2024 && \cventrycompany{Automotive Cyber Security Training}{NobleProg GmbH}
+\end{tabular}
+
+% Ehrenamtliches Engagement
+\vspace{-0.25cm}
+\section{Studentische Aktivitäten}
+\vspace{0.065cm}
+\begin{tabular}{@{}p{0.13\textwidth}p{0.03\textwidth}p{0.82\textwidth}@{}}
+Apr. 2022 -- \newline Sept. 2024&& \cventrycompany{Tachyon Hyperloop}{RWTH Aachen University}
+\vspace{0.075cm}
+\begin{itemize}
+\item Umsetzung von Telemetrie-, Bremssteuerungs- und Thermalkontroll-Hardware mit Altium Designer.
+\item Entwicklung von Firmware mit MATLAB/Simulink für TI C2000 Mikrocontroller.
+\item Finanz- und Projektmanagement als Vorstandsmitglied sowie Mentoring neuer Mitglieder im Elektronikdesign.
+\end{itemize}\\
+Feb. 2015 -- \newline Sept. 2017&& \cventrycompany{Pravega Racing}{Vellore Institute of Technology}
+\vspace{0.075cm}
+\begin{itemize}
+\item Entwicklung eines elektronischen Drosselklappenreglers.
+\item Abstimmung von Motorsteuergeräten und Erstellung von Renn-Kabelbäumen.
+\item Entwicklung einer Traktionskontrolleinheit für Rennwagen-Launch-Control.
+\end{itemize}
+\end{tabular}
+
+% Auszeichnungen
+\vspace{-0.25cm}
+\section{Auszeichnungen}
+\vspace{-0.065cm}
+\begin{tabular}{@{}p{0.13\textwidth}p{0.03\textwidth}p{0.82\textwidth}@{}}
+Aug. 2024 && \cventrycompany{European Hyperloop Week}{Best Electronics Design}\vspace{1.5ex}\\
+Jan. 2017 && \cventrycompany{Formula Student India}{Best Engineering Design}\vspace{1.5ex}\\
+Mai 2013 && \cventrycompany{NASA Space Settlement Contest}{Honorable Mention}\vspace{1.5ex}\\
+\end{tabular}
+
+% Unterschrift
+\begin{flushright}
+\vskip8ex
+\textbf{Yashasvi Karnena}\\
+Aachen, \today
+\end{flushright}
+
+\end{document}
