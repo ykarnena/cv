@@ -1,0 +1,129 @@
+% Beispieldokument für mycv.cls
+\documentclass[11pt,a4paper,lang=de]{mycv}
+ \input{glyphtounicode}
+
+\pdfgentounicode=1
+% ======================
+% Setup Imports
+% ======================
+%\usepackage{mwe} % "Minimal Working Example"-Paket
+
+% ======================
+% Profilinformationen
+% ======================
+\name{Yashasvi Karnena}
+\address{Theaterstraße 58,\newline 52062 -- Aachen,\newline Deutschland} % Verwenden Sie \newline für Zeilenumbruch
+\email{yashkarnena@gmail.com}
+\mobile{+49 176 72606124}
+\dateofbirth{24.05.1997}
+\nationality{Indien}
+\profilepicture{F1534.jpg}
+
+% ======================
+% Kopfzeilenabstand
+% ======================
+\setheadersep{-0.75cm} % Abstand nach der Kopfzeile
+%\setheaderpagesep{0.75cm} % Abstand zum oberen Seitenrand
+
+% ======================
+% Beginn des Lebenslaufs
+% ======================
+\begin{document}
+	\makecvheader
+	\setcolwidths{0.18\textwidth}{0.02\textwidth}
+	\begin{profexperience}
+		\begin{experienceentry}{Apr 23 -- Heute}{fka GmbH}{Aachen, Deutschland}
+			\begin{role}{Entwicklungsingenieur -- Software}{}
+				\item Entwicklung von ISO-26262-qualifizierten Echtzeit-Softwarekomponenten mit TargetLink und MATLAB/Simulink.
+				\item Erstellung von Functional Mockup Units (FMUs) zur Validierung der ECU-Firmware anhand von Umgebungsmodellen.
+				\item Untersuchung nichtlinearer Regelungsmethoden für PMSM-Positionsregelung in Steer-by-Wire-Systemen.
+				\item Durchführung von HiL-, MiL- und SiL-Tests der Funktionssoftware.
+				\item Forschung und Implementierung eines Konzepts zur cloudbasierten Parameteridentifikation und Reglerabstimmung für Software-Defined Vehicles.
+			\end{role}
+		\end{experienceentry}
+		\begin{experienceentry}{Apr 22 -- Mär 23}{fka GmbH}{Aachen, Deutschland}
+			\begin{role}{Masterarbeit}{}
+				\item Implementierung eines Positions-Trajektorienregelkreises mittels nichtlinearer 2DOF-Regelung.
+				\item Implementierung eines nichtlinearen MPC-Trajektorienplaners mit State-Lattice-Plannern zum Solver-Warm-Start zur Behandlung von Nichtkonvexitäten.
+				\item Entwicklung eines zustandsbasierten sequentiellen Kooperationsalgorithmus für vernetzte autonome Fahrzeuge.
+			\end{role}
+		\end{experienceentry}
+		\begin{experienceentry}{Nov 21 -- Mär 22}{fka GmbH}{Aachen, Deutschland}
+			\begin{role}{Praktikant}{}
+				\item Entwurf von kaskadierten Positionsregelkreisen und extended Kalman-Filtern (Parameterabschätzung) für Steer-by-Wire-Systeme.
+				\item Entwicklung von C/C++ -- Beobachtern und Filtern; Einsatz auf PXROS RTOS.
+				\item Fehlersuche bei Hardware, Firmware und Regelkreisen.
+			\end{role}
+		\end{experienceentry}
+		\begin{experienceentry}{Mai 21 -- Okt 21}{Institut für Elektrische Maschinen, RWTH Aachen}{Aachen, Deutschland}
+			\begin{role}{Studentische Hilfskraft}{}
+				\item Erstellung von Simulink-Übungen für das Labor \emph{Dynamics of Electrical Machines}.
+				\item Entwicklung von Simulink-Modellen zur Analyse von Lagerschäden durch Wechselrichter-Oberschwingungen.
+			\end{role}
+		\end{experienceentry}
+		\begin{experienceentry}{Mai 18 -- Apr 19}{Altigreen Propulsion Labs Private Limited}{Bengaluru, Indien}
+			\begin{role}{Junior Electrical Engineer}{}
+				\item Entwicklung von Firmware für Telematikgeräte und Inverter-FOC-Algorithmen in Simulink.
+				\item Einrichtung von Toolchains mit CMake/Jenkins für TI C2000- und ARM-Mikrocontrollerplattformen.
+			\end{role}
+		\end{experienceentry}
+%		\begin{experienceentry}{Apr 17 -- Sep 17}{Defense Avionics Research Establishment}{Bengaluru, Indien}
+%			\begin{role}{Praktikant}{}
+%				\item Entwurf von Stromverteilungsplatinen mit LTSpice und Altium.
+%				\item Implementierung von Avionik-Logik auf FPGAs; Entwicklung von analogen/digitalen Filtern.
+%			\end{role}
+%		\end{experienceentry}
+	\end{profexperience}
+	\begin{academics}
+		\begin{acadentry}{Okt 19 -- Mai 23}{RWTH Aachen University}{Aachen, Deutschland}{M.Sc. Elektrotechnik, IT \& Computertechnik}{Systeme und Automatisierung}{2,2}
+		\end{acadentry}
+		\begin{acadentry}{Jul 14 -- Mai 18}{Vellore Institute of Technology}{Vellore, Indien}{B.Tech in Electrical and Electronics Engineering}{}{1,9}
+		\end{acadentry}
+	\end{academics}
+	\begin{skills}
+		\skillentry{Programmierung}{C/C++, Java, Python, Golang, Bash, LaTeX, CMake}
+		\skillentry{Codegenerierung}{MATLAB/Simulink Coder, dSPACE TargetLink, MathWorks TLC}
+		\skillentry{Simulation}{MATLAB, Simulink, LabView, PLECS, LTSpice, Simscape Language}
+		\skillentry{EDA-Software}{KiCAD, Altium Designer, Eagle PCB}
+		\skillentry{Testsoftware}{CANoe, CANape, ControlDesk, PCAN-View}
+		\skillentry{EDV-Kenntnisse}{Git, Jira, MS Office, IBM DOORS, PTC Windchill, Citavi}
+		\skillentry{Sprachen}{Englisch (C2), Deutsch (B1), Telugu (C2), Hindi (C1)}
+	\end{skills}
+	\section{Berufliche Weiterbildung}
+	\begin{cvtable}
+	Okt 24 && \textbf{\textcolor{cvsecondary}{Automotive Cyber Security Training}} -- NobleProg GmbH
+	\end{cvtable}
+
+	\section{Studentische Aktivitäten}
+	\begin{experienceentry}{Apr 22 -- Sep 24}{Tachyon Hyperloop}{RWTH Aachen University}
+		\vspace{-\baselineskip}
+		\begin{itemize}
+			\item Umsetzung von Telemetrie-, Bremssteuerungs- und Thermalkontroll-Hardware mit Altium Designer.
+			\item Entwicklung von Firmware mit MATLAB/Simulink für TI C2000 Mikrocontroller.
+			\item Finanz- und Projektmanagement als Vorstandsmitglied sowie Mentoring neuer Mitglieder im Elektronikdesign.
+		\end{itemize}
+	\end{experienceentry}
+	\begin{experienceentry}{Feb 15 -- Sep 17}{Pravega Racing}{Vellore Institute of Technology}
+		\vspace{-\baselineskip}
+		\begin{itemize}
+			\item Entwicklung eines elektronischen Drosselklappenreglers.
+			\item Abstimmung von Motorsteuergeräten und Bau eines rennspezifischen Kabelbaums.
+			\item Entwicklung einer Traktionskontrolleinheit für Rennwagen-Launch-Control.
+		\end{itemize}
+	\end{experienceentry}
+	
+	\section{Auszeichnungen}
+	\begin{cvtable}
+		Aug 24 && \textbf{\textcolor{cvsecondary}{European Hyperloop Week}} -- {Best Mechanical and Electronics Design}\\
+		
+		Jan 17 && \textbf{\textcolor{cvsecondary}{Formula Student India}} -- {Competition Champion \& Best Electronics Design}\\
+		
+		Mai 13 && \textbf{\textcolor{cvsecondary}{NASA Space Settlement Contest}} -- {Honorable Mention}
+	\end{cvtable}
+	
+	\vfill
+	\begin{flushright}
+	Yashasvi Karnena\par
+	Aachen, \today
+	\end{flushright}
+\end{document}

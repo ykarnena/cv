@@ -58,6 +58,8 @@
 \RequirePackage{longtable}
 \RequirePackage{calc}
 \RequirePackage{needspace}
+\RequirePackage{array}
+\RequirePackage{accsupp}
 
 % =========================
 % Language setup
@@ -386,16 +388,43 @@
 }%
 \makeatother
 
+
+% =========================
+% Date Range display utility
+% =========================
+%\newlength{\monthwidth}
+%\settowidth{\monthwidth}{Sep}   % or the widest month abbreviation
+%\newlength{\yearwidth}
+%\settowidth{\yearwidth}{20}     % 2-digit year
+%\newlength{\separatorlen}
+%\settowidth{\ }
+%\newcommand{\daterange}[4]{%
+%\ifthenelse{\equal{#3}{Present} \OR \equal{#3}{Heute}}%
+%	{%
+%		\begin{tabular}{@{}p{\monthwidth}p{\separatorlen}p{\yearwidth}@{\, -- \,}l@{}}
+%			#1 & & #2 & #3
+%		\end{tabular}
+%	}{%
+%		\begin{tabular}{@{}p{\monthwidth}p{\separatorlen}p{\yearwidth}@{\, -- \,}p{\monthwidth}p{\separatorlen}p{\yearwidth}@{}}%
+%    			#1 & & #2 & #3 & & #4%
+%  		\end{tabular}%
+%}%
+%}%
+
 % =========================
 % Professional Experience Entry
 % =========================
 \newenvironment{experienceentry}[3]{%
 	\begin{tabular}{@{}p{\cvleftcol}@{}p{\cvsepcol}@{}p{\cvrightcol}@{}}
-	#1 && \textbf{\textcolor{cvsecondary}{#2}} -- #3 \newline
+		\def\currentcompany{#2}
+		\def\currentcompanyloc{#3}
+		\def\currentcompanydate{#1}
+		#1&& \textbf{\textcolor{cvsecondary}{#2}} -- #3 \newline
 }
 {%
 	\end{tabular}\vspace{-0.75\baselineskip}
 }
+
 
 
 % =========================
@@ -419,7 +448,10 @@
 % =========================
 \newenvironment{role}[2]{
 %	\vspace{0.75em}
-	\emph{#1}\hfill\ifstrempty{#2}{}{(#2)}%
+	\emph{#1}\hfill\ifstrempty{#2}{
+	}{
+	(#2)
+	}%
 %	\vspace{-0.5\baselineskip}
 	\begin{itemize}
 }{
@@ -457,7 +489,7 @@
 	
 	% Add entry
 	\begin{tabular}{@{}p{\cvleftcol}@{}p{\cvsepcol}@{}p{\cvrightcol}@{}}
-		#1 && \textbf{\textcolor{cvsecondary}{#2}} -- {#3}\newline
+		\raggedright #1 && \textbf{\textcolor{cvsecondary}{#2}} -- {#3}\newline
 		\emph{#4}\newline
 		\ifdefstring{\tempa}{de}{%
 			\ifstrempty{#5}{}{%
@@ -505,7 +537,7 @@
 % =========================
 \newcommand{\skillentry}[2]{%
 	% #1 -> Skill Type, #2 -> Skills List
-	\textbf{\textcolor{cvsecondary}{#1}}:&& #2\\
+	\raggedright\textbf{\textcolor{cvsecondary}{#1}}:&& #2\\
 }
 
 % =========================
